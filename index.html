@@ -86,8 +86,8 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1600&q=80') center/cover no-repeat;
-      opacity: 0.3;
+      background: url('images/royal-mombasa-front.jpg') center 30%/cover no-repeat;
+      opacity: 0.38;
     }
     .hero-overlay {
       position: absolute; inset: 0;
@@ -167,6 +167,7 @@
     .route-card:hover .rc-img-wrap img { transform: scale(1.06); }
     .rc-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,14,26,0.85) 0%, transparent 55%); }
     .rc-badge { position: absolute; top: 10px; left: 10px; background: var(--blue); color: white; font-size: 0.72rem; font-weight: 700; padding: 3px 9px; border-radius: 50px; letter-spacing: 0.04em; }
+    .rc-price { position: absolute; top: 10px; right: 10px; background: rgba(10,14,26,0.82); border: 1px solid rgba(255,255,255,0.18); color: white; font-size: 0.72rem; font-weight: 700; padding: 3px 9px; border-radius: 50px; }
     .rc-body { padding: 14px 16px; }
     .rc-name { font-size: 0.97rem; font-weight: 700; margin-bottom: 10px; }
     .rc-book-btn {
@@ -178,10 +179,19 @@
     .rc-book-btn:hover { background: var(--blue-dark); }
     .rc-book-btn svg { width: 14px; height: 14px; fill: white; }
 
+    /* ── FLEET GALLERY ───────────────────────────────────── */
+    #fleet { background: var(--dark); }
+    .fleet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
+    .fleet-card { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); height: 260px; }
+    .fleet-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s; }
+    .fleet-card:hover img { transform: scale(1.05); }
+    .fleet-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px; background: linear-gradient(to top, rgba(6,10,20,0.92), transparent); font-size: 0.9rem; font-weight: 700; }
+    .fleet-caption span { display: block; font-size: 0.76rem; font-weight: 500; color: var(--gray); margin-top: 2px; }
+
     /* ── WHY US ──────────────────────────────────────────── */
-    #why { background: var(--dark); }
+    #why { background: var(--dark2); }
     .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; }
-    .feature-card { background: var(--dark2); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 30px 26px; transition: border-color 0.2s; }
+    .feature-card { background: var(--dark3); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 30px 26px; transition: border-color 0.2s; }
     .feature-card:hover { border-color: rgba(13,110,253,0.4); }
     .fi { width: 50px; height: 50px; border-radius: 14px; background: rgba(13,110,253,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
     .fi svg { width: 24px; height: 24px; fill: var(--blue); }
@@ -189,7 +199,7 @@
     .fp { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
 
     /* ── CONTACT / FOOTER ────────────────────────────────── */
-    #contact { background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.06); }
+    #contact { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
     .ci { display: flex; gap: 14px; margin-bottom: 22px; }
     .ci-ico { width: 42px; height: 42px; border-radius: 10px; background: rgba(13,110,253,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -230,13 +240,35 @@
       width: 28px; height: 28px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);
       color: var(--gray); font-size: 0.8rem; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
-      transition: all 0.3s;
+      transition: all 0.3s; flex-shrink: 0;
     }
     .step-num.active { border-color: var(--blue); background: var(--blue); color: white; }
     .step-num.done { border-color: #22c55e; background: #22c55e; color: white; }
-    .step-lbl { font-size: 0.82rem; color: var(--gray); font-weight: 500; }
+    .step-lbl { font-size: 0.78rem; color: var(--gray); font-weight: 500; white-space: nowrap; }
     .step-lbl.active { color: white; }
-    .step-sep { flex: 1; height: 1px; background: rgba(255,255,255,0.12); margin: 0 10px; }
+    .step-sep { flex: 1; height: 1px; background: rgba(255,255,255,0.12); margin: 0 6px; }
+
+    /* ── DEPARTURE & CLASS PICKER ───────────────────────── */
+    .dep-block { margin-bottom: 20px; }
+    .dep-block-lbl { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.68); margin-bottom: 10px; }
+    .dep-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr)); gap: 10px; }
+    .dep-card { background: var(--dark3); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 14px; }
+    .dep-time { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .dep-time svg { width: 14px; height: 14px; fill: var(--blue); }
+    .dep-classes { display: flex; gap: 8px; }
+    .dep-btn {
+      flex: 1; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 8px; padding: 8px 6px; cursor: pointer; text-align: center;
+      color: white; transition: all 0.15s;
+    }
+    .dep-btn .dp-lbl { font-size: 0.72rem; font-weight: 700; color: var(--gray); display:block; margin-bottom: 2px; }
+    .dep-btn .dp-price { font-size: 0.85rem; font-weight: 700; }
+    .dep-btn.vip .dp-lbl { color: #f5c451; }
+    .dep-btn:hover { border-color: var(--blue); }
+    .dep-btn.selected { background: var(--blue); border-color: var(--blue-dark); }
+    .dep-btn.selected .dp-lbl { color: rgba(255,255,255,0.85); }
+    .dep-btn.selected.vip { background: linear-gradient(135deg,#b8892f,#8a6420); border-color: #8a6420; }
+    .dep-empty { font-size: 0.85rem; color: var(--gray); padding: 14px; text-align: center; background: var(--dark3); border-radius: 10px; border: 1px dashed rgba(255,255,255,0.15); }
 
     /* ── SEAT MAP ────────────────────────────────────────── */
     .seat-panel { display: none; }
@@ -265,6 +297,7 @@
       color: rgba(255,255,255,0.6);
       transition: all 0.15s; position: relative; user-select: none;
     }
+    .seat.vip { width: 64px; border-radius: 10px 10px 4px 4px; }
     .seat:hover:not(.taken) { border-color: var(--blue); color: white; background: rgba(13,110,253,0.12); }
     .seat.taken { background: rgba(248,113,113,0.18); border-color: rgba(248,113,113,0.45); color: rgba(248,113,113,0.7); cursor: not-allowed; }
     .seat.selected { background: var(--blue); border-color: var(--blue-dark); color: white; }
@@ -273,14 +306,18 @@
 
     .seat-summary { background: rgba(13,110,253,0.1); border: 1px solid rgba(13,110,253,0.25); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; font-size: 0.88rem; }
     .seat-summary strong { color: var(--blue); }
+    .seat-summary .total { font-size: 1rem; }
 
     /* ── DETAILS FORM ────────────────────────────────────── */
     .details-panel { display: none; }
     .details-panel.show { display: block; }
     .details-panel h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
     .details-panel .sub { color: var(--gray); font-size: 0.87rem; margin-bottom: 24px; }
-    .route-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(13,110,253,0.12); border: 1px solid rgba(13,110,253,0.25); border-radius: 8px; padding: 7px 14px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
-    .route-tag svg { width: 14px; height: 14px; fill: var(--blue); }
+    .route-tag { display: flex; flex-direction: column; gap: 6px; background: rgba(13,110,253,0.12); border: 1px solid rgba(13,110,253,0.25); border-radius: 10px; padding: 12px 16px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
+    .route-tag .rt-top { display: flex; align-items: center; gap: 8px; }
+    .route-tag svg { width: 14px; height: 14px; fill: var(--blue); flex-shrink: 0; }
+    .route-tag .rt-meta { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.7); }
+    .route-tag .rt-meta b { color: white; font-weight: 700; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .fg { margin-bottom: 14px; }
     .fg label { display: block; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.68); margin-bottom: 6px; }
@@ -332,11 +369,13 @@
       .contact-grid { grid-template-columns: 1fr; gap: 32px; }
       footer { flex-direction: column; text-align: center; }
       .form-row { grid-template-columns: 1fr; }
+      .step-lbl { display: none; }
     }
     @media (max-width: 480px) {
       .hero-ctas { flex-direction: column; }
       .btn-primary, .btn-outline { width: 100%; justify-content: center; text-align: center; }
       .seat { width: 32px; height: 32px; font-size: 0.65rem; }
+      .seat.vip { width: 54px; }
     }
   </style>
 </head>
@@ -353,6 +392,7 @@
   <div class="nav-links">
     <a href="#">Home</a>
     <a href="#routes">Routes</a>
+    <a href="#fleet">Our Fleet</a>
     <a href="#why">Why Us</a>
     <a href="#contact">Contact</a>
     <button class="btn-nav" onclick="openBooking()">Book Ticket</button>
@@ -362,6 +402,7 @@
 <div class="mobile-menu" id="mob">
   <a href="#" onclick="toggleMobile()">Home</a>
   <a href="#routes" onclick="toggleMobile()">Routes</a>
+  <a href="#fleet" onclick="toggleMobile()">Our Fleet</a>
   <a href="#why" onclick="toggleMobile()">Why Us</a>
   <a href="#contact" onclick="toggleMobile()">Contact</a>
   <button class="btn-nav" onclick="toggleMobile();openBooking();">Book Ticket</button>
@@ -373,9 +414,9 @@
   <div class="hero-overlay"></div>
   <div class="hero-stripe"></div>
   <div class="hero-content">
-    <div class="hero-badge"><div class="hero-dot"></div>Trusted across 39 destinations in Kenya</div>
+    <div class="hero-badge"><div class="hero-dot"></div>Trusted across 40 destinations in Kenya</div>
     <h1>Journey with<br><span>Confidence.</span></h1>
-    <p>From the coast of Mombasa to the highlands of Kitale — Royal Liner connects Kenya with comfort, punctuality, and care.</p>
+    <p>From the coast of Mombasa to the highlands of Kitale — Royal Liner connects Kenya with comfort, punctuality, and care. Standard &amp; VIP classes available.</p>
     <div class="hero-ctas">
       <button class="btn-primary" onclick="openBooking()">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.54 15.5 0 12 0S6 2.54 6 4.66c0 .46.09.9.18 1.34H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
@@ -384,7 +425,7 @@
       <a href="#routes" class="btn-outline">View Routes</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">39</div><div class="stat-lbl">Destinations</div></div>
+      <div class="stat"><div class="stat-num">40</div><div class="stat-lbl">Destinations</div></div>
       <div class="stat"><div class="stat-num">Daily</div><div class="stat-lbl">Departures</div></div>
       <div class="stat"><div class="stat-num">24/7</div><div class="stat-lbl">Support</div></div>
     </div>
@@ -397,7 +438,7 @@
     <div>
       <div class="section-tag">Our Network</div>
       <div class="section-title">Top Routes</div>
-      <div class="section-sub">40 destinations across Kenya. Click any route to book a seat.</div>
+      <div class="section-sub">40 destinations across Kenya. Click any route to see departure times, VIP &amp; Standard fares, and book a seat.</div>
     </div>
     <div class="search-wrap">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35" stroke-linecap="round"/></svg>
@@ -405,6 +446,14 @@
     </div>
   </div>
   <div class="routes-grid" id="routesGrid"></div>
+</section>
+
+<!-- FLEET GALLERY -->
+<section id="fleet">
+  <div class="section-tag">Our Fleet</div>
+  <div class="section-title">Modern Coaches, Every Route</div>
+  <div class="section-sub">A look at the Royal Liner fleet — from our Standard coaches to our fully reclining VIP sleeper cabins.</div>
+  <div class="fleet-grid" id="fleetGrid"></div>
 </section>
 
 <!-- WHY US -->
@@ -421,7 +470,7 @@
     <div class="feature-card">
       <div class="fi"><svg viewBox="0 0 24 24"><path d="M4 6H20V16H4zm8 5a2 2 0 100-4 2 2 0 000 4zm6 4H6l2-3h8l2 3z"/></svg></div>
       <div class="ft">Comfortable Fleet</div>
-      <div class="fp">Modern, air-conditioned coaches with spacious seating, charging ports, and ample luggage space.</div>
+      <div class="fp">Modern, air-conditioned coaches with spacious seating, charging ports, and ample luggage space. Ask for VIP for full-recline sleeper seats.</div>
     </div>
     <div class="feature-card">
       <div class="fi"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/></svg></div>
@@ -431,7 +480,7 @@
     <div class="feature-card">
       <div class="fi"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
       <div class="ft">Kenya-Wide Coverage</div>
-      <div class="fp">From the Indian Ocean coast to the western border — 39 destinations mean you can reach almost anywhere.</div>
+      <div class="fp">From the Indian Ocean coast to the western border — 40 destinations mean you can reach almost anywhere.</div>
     </div>
   </div>
 </section>
@@ -477,7 +526,7 @@
     <div class="steps" id="stepsBar">
       <div class="step-item">
         <div class="step-num active" id="sn1">1</div>
-        <div class="step-lbl active" id="sl1">Select Seats</div>
+        <div class="step-lbl active" id="sl1">Time &amp; Seats</div>
       </div>
       <div class="step-sep"></div>
       <div class="step-item">
@@ -491,27 +540,34 @@
       </div>
     </div>
 
-    <!-- STEP 1: Seat Map -->
+    <!-- STEP 1: Time, Class & Seat Map -->
     <div class="seat-panel show" id="seatPanel">
       <div class="seat-header">
-        <h2 id="seatTitle">Select Your Seat</h2>
-        <p id="seatSubtitle">Choose an available seat from the bus layout below</p>
+        <h2 id="seatTitle">Plan Your Trip</h2>
+        <p id="seatSubtitle">Choose your route, departure time and class</p>
       </div>
 
-      <div style="margin-bottom:16px;">
+      <div style="margin-bottom:20px;">
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
           <div class="fg" style="flex:1;min-width:140px;margin:0;">
             <label>From</label>
-            <select id="s1from" onchange="updateSeatHeader()">
+            <select id="s1from" onchange="onRouteChange()">
               <option value="">Select origin</option>
             </select>
           </div>
           <div class="fg" style="flex:1;min-width:140px;margin:0;">
             <label>To</label>
-            <select id="s1to" onchange="updateSeatHeader()">
+            <select id="s1to" onchange="onRouteChange()">
               <option value="">Select destination</option>
             </select>
           </div>
+        </div>
+      </div>
+
+      <div class="dep-block">
+        <div class="dep-block-lbl">Departure Time &amp; Class (Standard / VIP)</div>
+        <div class="dep-grid" id="depGrid">
+          <div class="dep-empty">Select an origin above to see departure times and fares</div>
         </div>
       </div>
 
@@ -531,8 +587,8 @@
       </div>
 
       <div class="seat-summary" id="seatSummary">
-        <span>Selected: <strong id="selCount">0</strong> seat(s)</span>
-        <span>Seats: <strong id="selNums">—</strong></span>
+        <span>Selected: <strong id="selCount">0</strong> seat(s) &middot; <strong id="selNums">—</strong></span>
+        <span class="total">Total: <strong id="selTotal">KES 0</strong></span>
       </div>
 
       <button class="btn-primary" style="width:100%;justify-content:center;" onclick="goToDetails()">
@@ -550,8 +606,15 @@
       <p class="sub">Fill in your information to complete the booking</p>
 
       <div class="route-tag" id="routeTagEl">
-        <svg viewBox="0 0 24 24"><path d="M3 11.5L4.5 6.5C5 4.9 6.5 4 8 4H16C17.5 4 19 4.9 19.5 6.5L21 11.5V18C21 18.6 20.6 19 20 19H19C19 20.1 18.1 21 17 21S15 20.1 15 19H9C9 20.1 8.1 21 7 21S5 20.1 5 19H4C3.4 19 3 18.6 3 18V11.5Z"/></svg>
-        <span id="routeTagText">Select route above</span>
+        <div class="rt-top">
+          <svg viewBox="0 0 24 24"><path d="M3 11.5L4.5 6.5C5 4.9 6.5 4 8 4H16C17.5 4 19 4.9 19.5 6.5L21 11.5V18C21 18.6 20.6 19 20 19H19C19 20.1 18.1 21 17 21S15 20.1 15 19H9C9 20.1 8.1 21 7 21S5 20.1 5 19H4C3.4 19 3 18.6 3 18V11.5Z"/></svg>
+          <span id="routeTagText">Select route above</span>
+        </div>
+        <div class="rt-meta">
+          <span>Departure: <b id="rtTime">—</b></span>
+          <span>Class: <b id="rtClass">—</b></span>
+          <span>Fare: <b id="rtFare">—</b></span>
+        </div>
       </div>
 
       <div class="form-row">
@@ -593,66 +656,91 @@
 </div>
 
 <script>
-// ── Route data with Unsplash image keywords ──────────────────
-const ROUTES = [
-  { name:"AHERO",             kw:"ahero+kenya+road+town" },
-  { name:"BAMBURI",           kw:"bamburi+mombasa+kenya+beach+road" },
-  { name:"BUMALA",            kw:"bumala+kenya+western+road" },
-  { name:"BUNGOMA",           kw:"bungoma+kenya+town" },
-  { name:"BUSIA",             kw:"busia+kenya+border+road" },
-  { name:"CHANGAMWE",         kw:"mombasa+kenya+highway+industrial" },
-  { name:"ELDORET",           kw:"eldoret+kenya+highland+road" },
-  { name:"EMALI",             kw:"emali+kenya+semi-arid+road" },
-  { name:"GILGIL",            kw:"gilgil+kenya+rift+valley" },
-  { name:"KATITO",            kw:"katito+kisumu+kenya+lake" },
-  { name:"KERICHO",           kw:"kericho+kenya+tea+highlands" },
-  { name:"KILIFI",            kw:"kilifi+kenya+coast+bridge" },
-  { name:"KISUMU",            kw:"kisumu+kenya+lake+victoria" },
-  { name:"KITALE",            kw:"kitale+kenya+highlands+road" },
-  { name:"KITENGELA",         kw:"kitengela+kenya+savanna+road" },
-  { name:"KITUI",             kw:"kitui+kenya+semi-arid+road" },
-  { name:"LUANDA",            kw:"luanda+kenya+western+market" },
-  { name:"MACHAKOS",          kw:"machakos+kenya+hills+road" },
-  { name:"MACHAKOS JUNCTION", kw:"machakos+junction+kenya+highway" },
-  { name:"MALABA",            kw:"malaba+kenya+border+road" },
-  { name:"MALINDI",           kw:"malindi+kenya+coast+town" },
-  { name:"MARIAKANI",         kw:"mombasa+kenya+road+tropical" },
-  { name:"MATSANGONI",        kw:"kilifi+kenya+coast+road" },
-  { name:"MAVUENI",           kw:"kilifi+kenya+tropical+road" },
-  { name:"MIRITINI",          kw:"mombasa+kenya+port+road" },
-  { name:"MLOLONGO",          kw:"mlolongo+nairobi+kenya+highway" },
-  { name:"MOIS BRIDGE",       kw:"mois+bridge+eldoret+kenya" },
-  { name:"MOMBASA",           kw:"mombasa+kenya+old+town+coast" },
-  { name:"MTITO ANDEI",       kw:"tsavo+kenya+national+park+road" },
-  { name:"MTWAPA",            kw:"mtwapa+kenya+creek+coast" },
-  { name:"NAIROBI",           kw:"nairobi+kenya+city+skyline" },
-  { name:"NAIVASHA",          kw:"naivasha+kenya+lake+flowers" },
-  { name:"NAKURU",            kw:"nakuru+kenya+rift+valley+flamingo" },
-  { name:"SAMBURU",           kw:"samburu+kenya+wildlife+road" },
-  { name:"SONDU",             kw:"sondu+kisumu+kenya+lake+road" },
-  { name:"UGUNJA",            kw:"ugunja+siaya+kenya+road" },
-  { name:"VOI",               kw:"voi+kenya+tsavo+road" },
-  { name:"WATAMU",            kw:"watamu+kenya+beach+ocean" },
-  { name:"WEBUYE",            kw:"webuye+bungoma+kenya+falls" },
-  { name:"YALLA",             kw:"yalla+siaya+kenya+western" }
+// ── Real fleet photos (Royal Liner) ───────────────────────────
+const FLEET_IMAGES = [
+  { src: "images/royal-vip-interior.jpg",   title: "VIP Sleeper Cabin",     sub: "Full recline seats with reading light & curtains" },
+  { src: "images/royal-mtwapa-nakuru.jpg",  title: "On the Road",           sub: "Mtwapa – Nakuru route" },
+  { src: "images/royal-night-fleet.jpg",    title: "Royal Liner Fleet",     sub: "Night departures, every day" },
+  { src: "images/royal-express-blue.jpg",   title: "Royal Liner Express",   sub: "Long-distance touring coach" },
+  { src: "images/royal-mombasa-front.jpg",  title: "Coastal Route",         sub: "Mombasa bound coach" },
+  { src: "images/royal-fleet-rear.jpg",     title: "The Royal Liner Fleet", sub: "Modern, well-maintained coaches" }
 ];
 
-// Unsplash source URL — reliable CDN redirects to a matching photo
-function unsplashUrl(kw) {
-  return `https://source.unsplash.com/featured/400x240/?${kw}`;
+// Cycle these images across route cards (limited real photos, 40 routes)
+const ROUTE_IMAGES = FLEET_IMAGES.map(f => f.src);
+
+// ── Route data: tier drives indicative fares ───────────────────
+// tier 1 = very short hop, 2 = short, 3 = medium, 4 = long distance
+const ROUTES = [
+  { name:"AHERO",             tier:4 },
+  { name:"BAMBURI",           tier:2 },
+  { name:"BUMALA",            tier:4 },
+  { name:"BUNGOMA",           tier:4 },
+  { name:"BUSIA",             tier:4 },
+  { name:"CHANGAMWE",         tier:2 },
+  { name:"ELDORET",           tier:4 },
+  { name:"EMALI",             tier:2 },
+  { name:"GILGIL",            tier:3 },
+  { name:"KATITO",            tier:4 },
+  { name:"KERICHO",           tier:3 },
+  { name:"KILIFI",            tier:2 },
+  { name:"KISUMU",            tier:4 },
+  { name:"KITALE",            tier:4 },
+  { name:"KITENGELA",         tier:1 },
+  { name:"KITUI",             tier:3 },
+  { name:"LUANDA",            tier:4 },
+  { name:"MACHAKOS",          tier:2 },
+  { name:"MACHAKOS JUNCTION", tier:1 },
+  { name:"MALABA",            tier:4 },
+  { name:"MALINDI",           tier:3 },
+  { name:"MARIAKANI",         tier:2 },
+  { name:"MATSANGONI",        tier:2 },
+  { name:"MAVUENI",           tier:2 },
+  { name:"MIRITINI",          tier:2 },
+  { name:"MLOLONGO",          tier:1 },
+  { name:"MOIS BRIDGE",       tier:4 },
+  { name:"MOMBASA",           tier:4 },
+  { name:"MTITO ANDEI",       tier:3 },
+  { name:"MTWAPA",            tier:2 },
+  { name:"NAIROBI",           tier:4 },
+  { name:"NAIVASHA",          tier:2 },
+  { name:"NAKURU",            tier:3 },
+  { name:"SAMBURU",           tier:3 },
+  { name:"SONDU",             tier:4 },
+  { name:"UGUNJA",            tier:4 },
+  { name:"VOI",               tier:3 },
+  { name:"WATAMU",            tier:3 },
+  { name:"WEBUYE",            tier:4 },
+  { name:"YALLA",             tier:4 }
+];
+
+// Base Standard fare (KES) per tier — indicative, edit to match real fares
+const BASE_FARES = { 1: 300, 2: 600, 3: 1000, 4: 1500 };
+const VIP_MULTIPLIER = 1.5;
+
+function fareFor(tier, cls) {
+  const base = BASE_FARES[tier] || 800;
+  if (cls === "VIP") return Math.round((base * VIP_MULTIPLIER) / 50) * 50;
+  return base;
 }
+
+// Shared daily departure schedule
+const DEPARTURES = ["06:00 AM", "09:30 AM", "02:00 PM", "08:00 PM", "10:30 PM"];
 
 // ── Build route grid ─────────────────────────────────────────
 const grid = document.getElementById("routesGrid");
 ROUTES.forEach((r, i) => {
+  const img = ROUTE_IMAGES[i % ROUTE_IMAGES.length];
+  const price = fareFor(r.tier, "Standard");
   const card = document.createElement("div");
   card.className = "route-card";
   card.dataset.name = r.name;
   card.innerHTML = `
     <div class="rc-img-wrap">
-      <img src="${unsplashUrl(r.kw)}" alt="${r.name}" loading="lazy" onerror="this.src='https://source.unsplash.com/featured/400x240/?kenya+road'"/>
+      <img src="${img}" alt="${r.name}" loading="lazy"/>
       <div class="rc-overlay"></div>
       <div class="rc-badge">Route</div>
+      <div class="rc-price">From KES ${price}</div>
     </div>
     <div class="rc-body">
       <div class="rc-name">${r.name}</div>
@@ -669,6 +757,18 @@ ROUTES.forEach((r, i) => {
   grid.appendChild(card);
 });
 
+// ── Build fleet gallery ─────────────────────────────────────
+const fleetGrid = document.getElementById("fleetGrid");
+FLEET_IMAGES.forEach(f => {
+  const card = document.createElement("div");
+  card.className = "fleet-card";
+  card.innerHTML = `
+    <img src="${f.src}" alt="${f.title}" loading="lazy"/>
+    <div class="fleet-caption">${f.title}<span>${f.sub}</span></div>
+  `;
+  fleetGrid.appendChild(card);
+});
+
 // ── Populate dropdowns ───────────────────────────────────────
 ["s1from","s1to"].forEach(id => {
   const sel = document.getElementById(id);
@@ -682,69 +782,155 @@ ROUTES.forEach((r, i) => {
 // ── Min date = today ─────────────────────────────────────────
 document.getElementById("pDate").min = new Date().toISOString().split("T")[0];
 
-// ── Seat state ───────────────────────────────────────────────
+// ── Seat & departure state ─────────────────────────────────────
 let selectedSeats = [];
 let takenSeats = [];
-const TOTAL_ROWS = 11;
+let selectedDeparture = null; // { time, cls, price }
+const STD_ROWS = 11;
+const VIP_ROWS = 8;
 
-function generateTakenSeats() {
+function getRouteTier(name) {
+  const r = ROUTES.find(x => x.name === name);
+  return r ? r.tier : 3;
+}
+
+function onRouteChange() {
+  const f = document.getElementById("s1from").value;
+  const t = document.getElementById("s1to").value;
+  selectedDeparture = null;
+  selectedSeats = [];
+  if(f && t) {
+    document.getElementById("seatTitle").textContent = `${f} → ${t}`;
+    document.getElementById("seatSubtitle").textContent = "Pick a departure time & class, then choose your seat(s)";
+  } else {
+    document.getElementById("seatTitle").textContent = "Plan Your Trip";
+    document.getElementById("seatSubtitle").textContent = "Choose your route, departure time and class";
+  }
+  renderDepartures();
+  buildSeatMap();
+}
+
+function renderDepartures() {
+  const f = document.getElementById("s1from").value;
+  const t = document.getElementById("s1to").value;
+  const depGrid = document.getElementById("depGrid");
+  if(!f || !t) {
+    depGrid.innerHTML = `<div class="dep-empty">Select an origin &amp; destination above to see departure times and fares</div>`;
+    return;
+  }
+  const tier = getRouteTier(f);
+  const std = fareFor(tier, "Standard");
+  const vip = fareFor(tier, "VIP");
+  depGrid.innerHTML = "";
+  DEPARTURES.forEach(time => {
+    const card = document.createElement("div");
+    card.className = "dep-card";
+    card.innerHTML = `
+      <div class="dep-time">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/></svg>
+        ${time}
+      </div>
+      <div class="dep-classes">
+        <button type="button" class="dep-btn std" data-time="${time}" data-cls="Standard" data-price="${std}">
+          <span class="dp-lbl">STANDARD</span><span class="dp-price">KES ${std}</span>
+        </button>
+        <button type="button" class="dep-btn vip" data-time="${time}" data-cls="VIP" data-price="${vip}">
+          <span class="dp-lbl">VIP</span><span class="dp-price">KES ${vip}</span>
+        </button>
+      </div>`;
+    depGrid.appendChild(card);
+  });
+  depGrid.querySelectorAll(".dep-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      selectDeparture(btn.dataset.time, btn.dataset.cls, parseInt(btn.dataset.price,10));
+    });
+  });
+}
+
+function selectDeparture(time, cls, price) {
+  selectedDeparture = { time, cls, price };
+  selectedSeats = [];
+  document.querySelectorAll(".dep-btn").forEach(b => {
+    b.classList.toggle("selected", b.dataset.time === time && b.dataset.cls === cls);
+  });
+  buildSeatMap();
+  updateSummary();
+}
+
+function generateTakenSeats(totalRows, cols) {
   const taken = new Set();
-  const count = 8 + Math.floor(Math.random() * 12); // 8-19 taken
+  const capacity = totalRows * cols.length;
+  const count = Math.min(capacity - 4, Math.floor(capacity * (0.25 + Math.random()*0.35)));
   while(taken.size < count) {
-    const row = 1 + Math.floor(Math.random() * TOTAL_ROWS);
-    const col = ["A","B","C","D"][Math.floor(Math.random() * 4)];
+    const row = 1 + Math.floor(Math.random() * totalRows);
+    const col = cols[Math.floor(Math.random() * cols.length)];
     taken.add(`${row}${col}`);
   }
-  // Always take seat 1A (driver helper)
-  taken.add("1A");
+  taken.add(`1${cols[0]}`); // seat beside driver always taken
   return [...taken];
 }
 
 function buildSeatMap() {
-  selectedSeats = [];
-  takenSeats = generateTakenSeats();
   const map = document.getElementById("seatMap");
+  const rear = document.getElementById("rearRow");
+  selectedSeats = [];
   map.innerHTML = "";
+  rear.innerHTML = "";
 
-  for(let row = 1; row <= TOTAL_ROWS; row++) {
+  if(!selectedDeparture) {
+    map.innerHTML = `<div class="dep-empty">Select a departure time &amp; class above to view seat availability</div>`;
+    updateSummary();
+    return;
+  }
+
+  const isVip = selectedDeparture.cls === "VIP";
+  const cols = isVip ? ["A","B"] : ["A","B","C","D"];
+  const rearCols = isVip ? ["I","J"] : ["E","F","G","H","I"];
+  const rows = isVip ? VIP_ROWS : STD_ROWS;
+
+  takenSeats = generateTakenSeats(rows, cols).concat(generateTakenSeats(1, rearCols));
+
+  for(let row = 1; row <= rows; row++) {
     const rowEl = document.createElement("div");
     rowEl.className = "seat-row";
-
-    ["A","B"].forEach(col => {
-      rowEl.appendChild(makeSeat(row, col));
-    });
-    const aisle = document.createElement("div");
-    aisle.className = "aisle";
-    rowEl.appendChild(aisle);
-    ["C","D"].forEach(col => {
-      rowEl.appendChild(makeSeat(row, col));
-    });
+    if(isVip) {
+      rowEl.appendChild(makeSeat(row, cols[0], isVip));
+      const aisle = document.createElement("div");
+      aisle.className = "aisle";
+      aisle.style.width = "40px";
+      rowEl.appendChild(aisle);
+      rowEl.appendChild(makeSeat(row, cols[1], isVip));
+    } else {
+      rowEl.appendChild(makeSeat(row, cols[0], isVip));
+      rowEl.appendChild(makeSeat(row, cols[1], isVip));
+      const aisle = document.createElement("div");
+      aisle.className = "aisle";
+      rowEl.appendChild(aisle);
+      rowEl.appendChild(makeSeat(row, cols[2], isVip));
+      rowEl.appendChild(makeSeat(row, cols[3], isVip));
+    }
     map.appendChild(rowEl);
   }
 
-  // Rear bench (seats E, F, G, H, I)
-  const rear = document.getElementById("rearRow");
-  rear.innerHTML = "";
-  ["E","F","G","H","I"].forEach(col => {
-    const seatId = `12${col}`;
+  rearCols.forEach(col => {
+    const seatId = `${rows+1}${col}`;
+    const taken = takenSeats.includes(seatId);
     const seat = document.createElement("div");
-    seat.className = "seat" + (takenSeats.includes(seatId) ? " taken" : "");
-    seat.textContent = `12${col}`;
+    seat.className = "seat" + (isVip ? " vip" : "") + (taken ? " taken" : "");
+    seat.textContent = seatId;
     seat.dataset.id = seatId;
-    if(!takenSeats.includes(seatId)) {
-      seat.addEventListener("click", () => toggleSeat(seat, seatId));
-    }
+    if(!taken) seat.addEventListener("click", () => toggleSeat(seat, seatId));
     rear.appendChild(seat);
   });
 
   updateSummary();
 }
 
-function makeSeat(row, col) {
+function makeSeat(row, col, isVip) {
   const id = `${row}${col}`;
   const taken = takenSeats.includes(id);
   const seat = document.createElement("div");
-  seat.className = "seat" + (taken ? " taken" : "");
+  seat.className = "seat" + (isVip ? " vip" : "") + (taken ? " taken" : "");
   seat.textContent = id;
   seat.dataset.id = id;
   if(!taken) seat.addEventListener("click", () => toggleSeat(seat, id));
@@ -766,16 +952,8 @@ function toggleSeat(el, id) {
 function updateSummary() {
   document.getElementById("selCount").textContent = selectedSeats.length;
   document.getElementById("selNums").textContent = selectedSeats.length ? selectedSeats.join(", ") : "—";
-}
-
-function updateSeatHeader() {
-  const f = document.getElementById("s1from").value;
-  const t = document.getElementById("s1to").value;
-  if(f && t) {
-    document.getElementById("seatTitle").textContent = `${f} → ${t}`;
-    document.getElementById("seatSubtitle").textContent = "Choose your preferred seat(s) from the bus layout below";
-    document.getElementById("routeTagText").textContent = `${f}  →  ${t}`;
-  }
+  const price = selectedDeparture ? selectedDeparture.price : 0;
+  document.getElementById("selTotal").textContent = "KES " + (price * selectedSeats.length);
 }
 
 // ── Modal navigation ─────────────────────────────────────────
@@ -783,11 +961,10 @@ function openBooking(presetFrom) {
   document.getElementById("overlay").classList.add("open");
   document.body.style.overflow = "hidden";
   showStep(1);
-  buildSeatMap();
   if(presetFrom) {
     document.getElementById("s1from").value = presetFrom;
-    updateSeatHeader();
   }
+  onRouteChange();
 }
 
 function closeBooking() {
@@ -805,7 +982,6 @@ function showStep(n) {
   document.getElementById("successPanel").classList.toggle("show", n === 3);
   document.getElementById("stepsBar").style.display = n === 3 ? "none" : "flex";
 
-  // Update step indicators
   [1,2,3].forEach(i => {
     const num = document.getElementById(`sn${i}`);
     const lbl = document.getElementById(`sl${i}`);
@@ -822,9 +998,13 @@ function goToDetails() {
   if(!from) { alert("Please select your origin."); return; }
   if(!to)   { alert("Please select your destination."); return; }
   if(from === to) { alert("Origin and destination cannot be the same."); return; }
+  if(!selectedDeparture) { alert("Please select a departure time and class."); return; }
   if(!selectedSeats.length) { alert("Please select at least one seat."); return; }
 
   document.getElementById("routeTagText").textContent = `${from}  →  ${to}`;
+  document.getElementById("rtTime").textContent = selectedDeparture.time;
+  document.getElementById("rtClass").textContent = selectedDeparture.cls;
+  document.getElementById("rtFare").textContent = `KES ${selectedDeparture.price} / seat`;
   showStep(2);
   document.getElementById("modal").scrollTop = 0;
 }
@@ -856,15 +1036,19 @@ function submitBooking() {
   const from = document.getElementById("s1from").value;
   const to   = document.getElementById("s1to").value;
   const fmtDate = new Date(date+"T00:00:00").toLocaleDateString("en-KE",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+  const total = selectedDeparture.price * selectedSeats.length;
 
   const msg = [
     "🚌 *Royal Liner Booking Request*",
     "",
     `*Route:* ${from}  →  ${to}`,
+    `*Date of Travel:* ${fmtDate}`,
+    `*Departure Time:* ${selectedDeparture.time}`,
+    `*Class:* ${selectedDeparture.cls}`,
     `*Seat(s):* ${selectedSeats.join(", ")}`,
+    `*Fare:* KES ${selectedDeparture.price} x ${selectedSeats.length} = *KES ${total}*`,
     `*Passenger:* ${name}`,
     `*Phone:* ${phone}`,
-    `*Date of Travel:* ${fmtDate}`,
     "",
     "_Sent via royalliner.co.ke_"
   ].join("\n");
